@@ -1,3 +1,5 @@
+import { HeroPortrait } from "./HeroPortrait";
+
 const capabilities = [
   {
     number: "01",
@@ -87,9 +89,7 @@ export default function Home() {
           </div>
         </div>
         <div className="heroVisual">
-          <div className="portraitFrame">
-            <img src="/nova-portrait.jpg" alt="Nova 尹阳阳阳儿个人形象照" />
-          </div>
+          <HeroPortrait />
           <p className="portraitNote">NOVA / YINYANG<br />CHENGDU, CHINA</p>
           <div className="orbitText" aria-hidden="true">BUSINESS · AI · GROWTH ·</div>
         </div>
