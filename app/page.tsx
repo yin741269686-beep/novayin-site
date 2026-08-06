@@ -1,239 +1,219 @@
+import { ExperienceEffects } from "./ExperienceEffects";
 import { HeroPortrait } from "./HeroPortrait";
 
-const capabilities = [
+const cases = [
   {
     number: "01",
-    title: "业务 SOP 梳理",
-    text: "把散落在员工经验、聊天记录和表格里的做法，整理成可执行、可培训、可复盘的标准流程。",
+    title: "新媒体 AI 生产工作台",
+    text: "把市场调研、选题策划、内容生产、评论线索与数据复盘，组合成一套持续运行的内容系统。",
+    meta: "AI 实践 · 内容增长",
   },
   {
     number: "02",
-    title: "AI 场景诊断",
-    text: "从真实业务瓶颈出发，判断哪些环节值得自动化，哪些决策仍应该保留给人。",
+    title: "民宿业务从 0 到 200+",
+    text: "通过流程拆解、岗位分工与标准化 SOP，用 2 名全职加兼职团队支撑业务规模化增长。",
+    meta: "实体经营 · SOP",
   },
   {
     number: "03",
-    title: "新媒体增长系统",
-    text: "打通调研、选题、生产、评论线索、数据复盘与下一轮内容的完整闭环。",
-  },
-  {
-    number: "04",
-    title: "Agent 与团队协作",
-    text: "将工具、知识库与工作流组合成团队真正用得起来、能够持续运行的业务系统。",
+    title: "新媒体全链路 AI 应用",
+    text: "从单点内容生成，升级为调研、生产、获客、转化与复盘的完整经营闭环。",
+    meta: "新媒体 · 获客",
   },
 ];
 
 const services = [
-  {
-    tag: "从哪里开始",
-    title: "AI 业务诊断",
-    text: "梳理当前流程与重复工作，识别高价值场景，给出分阶段落地路线。",
-    items: ["业务流程访谈", "场景优先级清单", "实施路线图"],
-  },
-  {
-    tag: "让团队跑起来",
-    title: "SOP 与 AI 改造",
-    text: "把依赖个人经验的工作，改造成有标准、有模板、有 AI 辅助节点的协作流程。",
-    items: ["流程与岗位 SOP", "模板及知识库", "人机协作规范"],
-  },
-  {
-    tag: "从内容到线索",
-    title: "新媒体 AI 工作台",
-    text: "为酒店、民宿、文旅和本地企业搭建可持续的新媒体生产与复盘系统。",
-    items: ["调研与选题系统", "内容生产流程", "线索识别与复盘"],
-  },
-  {
-    tag: "一起做出结果",
-    title: "企业培训与共创",
-    text: "围绕企业自己的资料和真实问题，带团队完成一个可以立即使用的工作流。",
-    items: ["场景化工作坊", "Agent 原型", "试运行与迭代"],
-  },
+  ["AI 业务诊断", "找到真正值得 AI 介入的业务环节"],
+  ["SOP 与 AI 改造", "把个人经验变成团队可执行的流程"],
+  ["新媒体 AI 工作台", "打通内容生产、线索识别与数据复盘"],
+  ["企业培训与共创", "围绕企业真实资料做出可用 Agent 原型"],
+];
+
+const steps = [
+  ["01", "业务诊断", "理解行业、团队与当前瓶颈"],
+  ["02", "流程拆解", "还原任务、角色、数据与决策点"],
+  ["03", "场景筛选", "找到投入产出比最高的位置"],
+  ["04", "原型搭建", "做出可以使用的工作流或 Agent"],
+  ["05", "试运行与复盘", "让团队使用，再根据结果迭代"],
 ];
 
 export default function Home() {
   return (
     <main>
+      <ExperienceEffects />
+
       <nav className="nav" aria-label="主导航">
-        <a className="brand" href="#top" aria-label="返回首页">
-          NOVA<span>·</span>
-        </a>
+        <a className="brand" href="#top" aria-label="返回首页">Nova</a>
         <div className="navLinks">
-          <a href="#about">关于我</a>
-          <a href="#practice">我的实践</a>
-          <a href="#services">合作方式</a>
+          <a data-nav="about" href="#about">ABOUT</a><i>·</i>
+          <a data-nav="practice" href="#practice">PRACTICE</a><i>·</i>
+          <a data-nav="services" href="#services">SERVICE</a><i>·</i>
+          <a data-nav="contact" href="#contact">CONTACT</a>
         </div>
-        <a className="navCta" href="#contact">聊聊你的业务</a>
+        <p className="navStat">CHENGDU · CN</p>
       </nav>
 
-      <section className="hero" id="top">
+      <div className="pageRail" aria-hidden="true"><i /><i /><i /></div>
+
+      <section className="hero pageSection" id="top">
         <div className="heroCopy">
-          <p className="eyebrow">成都 · 实体行业 AI 落地与新媒体增长</p>
-          <h1>
-            让 AI 进入业务，
-            <br />
-            <em>而不只停在演示里。</em>
-          </h1>
-          <p className="heroLead">
-            我是 Nova，尹阳阳阳儿。
-            <br />
-            我把复杂的 AI，变成企业能直接使用、团队能持续执行、结果可以复盘的业务系统。
-          </p>
-          <div className="heroActions">
-            <a className="primaryButton" href="#contact">预约一次业务交流 <span>↗</span></a>
-            <a className="textLink" href="#practice">看看我做过什么 <span>↓</span></a>
-          </div>
-          <div className="heroProof" aria-label="关键经历">
-            <div><strong>200万+</strong><span>项目投资</span></div>
-            <div><strong>0 → 200+</strong><span>民宿规模</span></div>
-            <div><strong>2名全职</strong><span>轻量团队</span></div>
+          <h1 data-reveal>Nova</h1>
+          <p className="heroKicker" data-reveal><b /> AI BUSINESS × NEW MEDIA</p>
+          <div className="heroLower">
+            <p className="heroLead" data-reveal>
+              让 AI 进入真实业务<br />而不只停在演示里
+            </p>
+            <div className="heroActions" data-reveal>
+              <a className="outlineButton" href="#practice">查看实践 <span>→</span></a>
+              <a className="outlineButton" href="#contact">联系我 <span>→</span></a>
+            </div>
           </div>
         </div>
         <div className="heroVisual">
+          <span className="cross crossTop" aria-hidden="true" />
           <HeroPortrait />
+          <span className="cross crossBottom" aria-hidden="true" />
           <p className="portraitNote">NOVA / YINYANG<br />CHENGDU, CHINA</p>
-          <div className="orbitText" aria-hidden="true">BUSINESS · AI · GROWTH ·</div>
         </div>
       </section>
 
-      <section className="manifesto" aria-label="个人主张">
-        <p className="sectionKicker">我的判断</p>
-        <blockquote>
-          “真正有价值的 AI 落地，<br />
-          不是多装一个工具，而是重新设计一次业务。”
-        </blockquote>
-        <p className="manifestoSide">
-          懂经营 · 懂新媒体 · 懂实体行业<br />
-          也能亲手把方案搭出来
-        </p>
-      </section>
-
-      <section className="about" id="about">
-        <div className="sectionHeader">
-          <p className="sectionKicker">01 / ABOUT</p>
-          <h2>先做过真实生意，<br />再谈 AI 怎么落地。</h2>
-        </div>
-        <div className="aboutGrid">
-          <div className="aboutStory">
-            <p>
-              2023 年，我获得 <strong>200 万+投资</strong>，采用“2 名全职＋兼职团队”的轻量化模式，
-              在一年内将民宿业务从 0 拓展至 200+。
-            </p>
-            <p>
-              这段经历让我确信：规模化的核心不是不断增加人手，而是把业务经验沉淀成清晰、稳定、可复制的流程。
-            </p>
-            <p>
-              2026 年，我开始深度应用 AI，将它系统性地用于市场调研、选题策划、内容生产、数据复盘与客户转化，
-              并逐步搭建出自己的新媒体生产工作台。
-            </p>
-          </div>
-          <div className="aboutCard">
-            <span className="cardLabel">我最擅长的事</span>
-            <p>从业务问题出发，拆流程、建系统、跑验证，直到团队真的用起来。</p>
-            <div className="toolLine">GPT · Gemini · Codex<br />Claude Code · Workbuddy</div>
+      <section className="about pageSection" id="about">
+        <div className="aboutCopy">
+          <h2 data-reveal>About me</h2>
+          <div className="aboutBio" data-reveal>
+            <p>我是 Nova，尹阳阳阳儿，坐标四川成都。</p>
+            <p>做过真实生意，也亲手把 AI 放进业务里跑。</p>
+            <p>擅长业务 SOP、AI 提效与实体行业的新媒体获客。</p>
           </div>
         </div>
+
+        <div className="blueprint" data-reveal>
+          <span className="blueprintCode">AI BUSINESS / BUILDER</span>
+          <span className="blueprintId">ID // NOVA</span>
+          <img src="/nova-workshop.jpg" alt="Nova 在 AI 工作坊现场分享" />
+          <div className="blueprintLeft">
+            <b>SPEC. 001</b><br />
+            FOCUS : SOP &amp; AI<br />
+            TOPIC : GROWTH<br />
+            FORMAT : WORKFLOW<br />
+            VALUE : DELIVERY
+          </div>
+          <div className="blueprintRight">
+            <b>EXPERIENCE</b><br />
+            BUSINESS<br />
+            CONTENT<br />
+            AGENT<br />
+            EST. 2023
+          </div>
+          <span className="blueprintCoord">N 30° 34′ · E 104° 04′</span>
+        </div>
+
+        <div className="capabilitySignals" data-reveal>
+          <div><b>梳</b><span>SOP</span></div><i />
+          <div><b>提</b><span>AI EFFICIENCY</span></div><i />
+          <div><b>获</b><span>GROWTH</span></div>
+        </div>
+
+        <div className="signalPanel" data-reveal>
+          <div className="signalHead"><h3>业务实践信号台</h3><span>LIVE / READY</span></div>
+          <div className="signalRows">
+            <div><span>01</span><b>200万+</b><em>项目投资</em><i>LIVE</i></div>
+            <div><span>02</span><b>0 → 200+</b><em>民宿规模</em><i>LIVE</i></div>
+            <div><span>03</span><b>2名全职</b><em>轻量团队</em><i>LIVE</i></div>
+            <div><span>04</span><b>全链路</b><em>新媒体 AI 工作台</em><i>READY</i></div>
+          </div>
+        </div>
       </section>
 
-      <section className="capabilities" aria-label="核心能力">
-        {capabilities.map((item) => (
-          <article className="capability" key={item.number}>
-            <span>{item.number}</span>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
+      <section className="practice pageSection" id="practice">
+        <header className="practiceHead">
+          <h2 data-reveal>Practice</h2>
+          <div className="practiceCats" data-reveal>
+            <span>做 — DO</span>
+            <p><b>做</b><i>·</i><span>讲 <small>LIVE</small></span><i>·</i><span>建 <small>NOW</small></span></p>
+          </div>
+        </header>
+
+        <div className="caseGrid">
+          <article className="featuredCase" data-reveal>
+            <div className="featuredImage"><img src="/nova-ai-talk.jpg" alt="Nova 分享 AI 在业务中的应用" /></div>
+            <div className="featuredCopy">
+              <span>01</span>
+              <h3>把 AI 当同事，<br />不是当玩具</h3>
+              <p>从真实业务问题出发，先拆流程，再选工具，最后把结果做成团队能持续使用的系统。</p>
+              <em>AI 落地 · 企业应用 · 2026</em>
+            </div>
           </article>
-        ))}
-      </section>
 
-      <section className="practice" id="practice">
-        <div className="practiceIntro">
-          <p className="sectionKicker light">02 / IN PRACTICE</p>
-          <h2>我的第一批案例，<br />来自我自己的业务。</h2>
-          <p>
-            在为客户提供 AI 服务之前，我先把它放进自己的工作中持续运行。
-            我不交付一份看起来完整、团队却无法使用的方案。
-          </p>
-        </div>
-        <div className="practicePhoto mainPhoto">
-          <img src="/nova-ai-talk.jpg" alt="Nova 在线下分享 AI 在业务中的应用" />
-          <div className="photoCaption"><span>AI 实践分享</span><span>Chengdu / 2026</span></div>
-        </div>
-        <article className="practiceCase caseOne">
-          <p className="caseNo">CASE 01</p>
-          <h3>新媒体 AI 生产工作台</h3>
-          <p>把行业调研、用户洞察、选题、内容生产、评论线索和数据复盘，组合成一套持续运行的内容系统。</p>
-        </article>
-        <article className="practiceCase caseTwo">
-          <p className="caseNo">CASE 02</p>
-          <h3>民宿业务从 0 到 200+</h3>
-          <p>通过流程拆解、岗位分工和标准化 SOP，用轻量团队支撑业务规模化增长。</p>
-        </article>
-        <article className="practiceCase caseThree">
-          <p className="caseNo">CASE 03</p>
-          <h3>新媒体全链路 AI 应用</h3>
-          <p>从单点内容生成，升级为“调研—生产—线索—复盘”的完整经营闭环。</p>
-        </article>
-      </section>
-
-      <section className="services" id="services">
-        <div className="sectionHeader serviceHeader">
-          <p className="sectionKicker">03 / WORK WITH ME</p>
-          <h2>不是卖工具，<br />而是一起解决业务问题。</h2>
-          <p>优先服务酒店、民宿、文旅、本地生活与希望通过新媒体获客的实体企业。</p>
-        </div>
-        <div className="serviceGrid">
-          {services.map((service, index) => (
-            <article className="serviceCard" key={service.title}>
-              <div className="serviceTop"><span>{service.tag}</span><b>0{index + 1}</b></div>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-              <ul>
-                {service.items.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="method">
-        <div className="methodImage">
-          <img src="/nova-speaking-stage.jpg" alt="Nova 在现场进行业务分享" />
-        </div>
-        <div className="methodCopy">
-          <p className="sectionKicker">04 / HOW I WORK</p>
-          <h2>从一个真实问题开始。</h2>
-          <ol>
-            <li><span>01</span><div><strong>业务诊断</strong><p>理解行业、团队与当前瓶颈</p></div></li>
-            <li><span>02</span><div><strong>流程拆解</strong><p>还原任务、角色、数据与决策点</p></div></li>
-            <li><span>03</span><div><strong>场景筛选</strong><p>找到最值得 AI 介入的位置</p></div></li>
-            <li><span>04</span><div><strong>原型搭建</strong><p>做出可使用的工作流或 Agent</p></div></li>
-            <li><span>05</span><div><strong>试运行与复盘</strong><p>让团队使用，再根据结果迭代</p></div></li>
-          </ol>
-        </div>
-      </section>
-
-      <section className="contact" id="contact">
-        <div className="contactCopy">
-          <p className="sectionKicker light">LET&apos;S TALK</p>
-          <h2>说说你最耗时间的<br />那件工作。</h2>
-          <p>
-            如果你正在思考企业应该如何使用 AI，欢迎简单告诉我你的行业、团队规模和当前最想解决的问题。
-          </p>
-          <div className="contactMeta">
-            <span>NOVA · 尹阳阳阳儿</span>
-            <span>四川 · 成都</span>
+          <div className="caseList">
+            {cases.map((item) => (
+              <article className="caseRow" data-reveal key={item.number}>
+                <span>{item.number}</span>
+                <div><h3>{item.title}</h3><p>{item.text}</p><em>{item.meta}</em></div>
+                <b>→</b>
+              </article>
+            ))}
           </div>
         </div>
-        <div className="qrCard">
-          <img src="/nova-wechat.jpg" alt="添加 Nova 微信的二维码" />
-          <p>扫码添加微信<br /><span>备注「AI 业务交流」</span></p>
+      </section>
+
+      <section className="services pageSection darkSection" id="services">
+        <div className="cinema" data-reveal>
+          <div className="cinemaBar"><span><i /> REC · <b data-rec-time>00:00:00</b></span><span>FIELD.01 · 实战中</span></div>
+          <img src="/nova-speaking-stage.jpg" alt="Nova 在活动现场进行业务分享" />
+          <div className="cinemaTitle"><h3>让 AI 真正在业务里跑起来</h3><p>从一次真实问题开始</p></div>
+          <div className="cinemaPlayer"><b>▶</b><span>00:00</span><i><b /></i><em>0%</em></div>
+        </div>
+
+        <div className="serviceFoot">
+          <div data-reveal><p>服 — SERVICE</p><h2>Service</h2></div>
+          <div className="serviceList" data-reveal>
+            {services.map((item, index) => (
+              <div key={item[0]}><span>0{index + 1}</span><p><b>{item[0]}</b><em>{item[1]}</em></p></div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <footer>
-        <a className="brand footerBrand" href="#top">NOVA<span>·</span></a>
-        <p>把复杂的 AI，变成能持续运行的业务系统。</p>
-        <a href="#top">回到顶部 ↑</a>
-      </footer>
+      <section className="method pageSection" id="method">
+        <div className="methodCopy" data-reveal>
+          <p>建 — BUILD</p>
+          <h2>Deliver</h2>
+          <span><i /> 从诊断到交付 · 一起跑通</span>
+          <p className="methodIntro">我不交付一份看起来完整、团队却无法使用的方案。每次合作都以真实资料、实际流程和可验证结果为起点。</p>
+        </div>
+
+        <div className="terminal" data-build data-reveal>
+          <div className="terminalTop"><i /><i /><i /></div>
+          <pre><code data-typed>$ nova build --for-real</code><b className="caret" /></pre>
+          <div className="terminalProgress"><span>v1.0.0 · <b data-compile-label>waiting...</b></span><em data-progress-num>0%</em><i><b data-progress-bar /></i></div>
+        </div>
+
+        <ol className="methodSteps" data-reveal>
+          {steps.map((step) => (
+            <li key={step[0]}><span>{step[0]}</span><p><b>{step[1]}</b><em>{step[2]}</em></p></li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="contact pageSection" id="contact">
+        <div className="contactCenter">
+          <p data-reveal><i /> GET IN TOUCH / 联系 <i /></p>
+          <h2 data-reveal>Let’s talk.</h2>
+          <h3 data-reveal>说说你最耗时间的那件工作。</h3>
+          <span data-reveal><i /> 当前开放合作 · Available</span>
+        </div>
+
+        <div className="marquee" aria-hidden="true"><div>AI 落地 · 酒店民宿 · 新媒体增长 · 业务 SOP · Agent · 企业应用 · AI 落地 · 酒店民宿 · 新媒体增长 · 业务 SOP · Agent · 企业应用 ·</div></div>
+
+        <div className="contactBar" data-reveal>
+          <div className="contactInfo"><span>NAME</span><b>Nova · 尹阳阳阳儿</b></div>
+          <div className="contactInfo"><span>LOCATION</span><b>四川 · 成都</b></div>
+          <div className="wechatBox"><img src="/nova-wechat.jpg" alt="添加 Nova 微信的二维码" /><p>微信 / WeChat<br /><span>备注「AI 业务交流」</span></p></div>
+        </div>
+
+        <footer><span>© 2026 Nova</span><p>AI BUSINESS × NEW MEDIA</p><a href="#top">回到顶部 ↑</a></footer>
+      </section>
     </main>
   );
 }
