@@ -58,11 +58,55 @@ main { overflow: hidden; }
 .heroProof div { display: grid; gap: 5px; }
 .heroProof strong { font-family: Georgia, serif; font-size: clamp(22px, 2vw, 32px); font-weight: 500; }
 .heroProof span { font-size: 11px; color: rgba(29,30,26,.58); }
-.heroVisual { background: var(--rust); position: relative; min-height: 690px; display: flex; align-items: center; justify-content: center; padding: 7%; }
-.portraitFrame { width: min(78%, 530px); aspect-ratio: .83; position: relative; overflow: hidden; box-shadow: 28px 30px 0 rgba(57,27,18,.18); }
-.portraitFrame img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); }
-.portraitNote { position: absolute; margin: 0; bottom: 4.5%; left: 6%; color: rgba(255,255,255,.76); font-size: 9px; line-height: 1.7; letter-spacing: .15em; }
-.orbitText { position: absolute; right: -25px; top: 12%; color: rgba(255,255,255,.55); writing-mode: vertical-rl; font: 10px/1 Georgia, serif; letter-spacing: .24em; }
+.heroVisual {
+  background: #231d18;
+  position: relative;
+  min-height: 690px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7%;
+  isolation: isolate;
+  overflow: hidden;
+}
+.heroVisual::before {
+  content: "";
+  position: absolute;
+  inset: -45px;
+  background: linear-gradient(rgba(20,16,13,.42), rgba(20,16,13,.42)), url("/nova-portrait.jpg") center / cover;
+  filter: blur(30px) saturate(.9);
+  opacity: .7;
+  transform: scale(1.12);
+  z-index: -2;
+}
+.heroVisual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(180,71,40,.16), transparent 48%, rgba(22,48,65,.22));
+  z-index: -1;
+}
+.portraitFrame {
+  width: min(88%, 610px);
+  aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 34px 85px rgba(9,6,4,.45);
+  border: 1px solid rgba(255,255,255,.24);
+}
+.portraitFrame img { width: 100%; height: 100%; object-fit: contain; }
+.portraitNote {
+  position: absolute;
+  margin: 0;
+  bottom: 4.5%;
+  left: 6%;
+  color: rgba(255,255,255,.84);
+  font-size: 9px;
+  line-height: 1.7;
+  letter-spacing: .15em;
+  text-shadow: 0 1px 16px rgba(0,0,0,.55);
+}
+.orbitText { position: absolute; right: -25px; top: 12%; color: rgba(255,255,255,.66); writing-mode: vertical-rl; font: 10px/1 Georgia, serif; letter-spacing: .24em; }
 
 .manifesto { min-height: 560px; padding: 100px 7vw; display: grid; grid-template-columns: 1fr 4fr 1fr; gap: 40px; align-items: center; border-bottom: 1px solid var(--line); }
 .manifesto blockquote { margin: 0; text-align: center; font-family: Georgia, "Songti SC", serif; font-size: clamp(34px, 4.8vw, 72px); letter-spacing: -.04em; line-height: 1.35; }
@@ -145,7 +189,7 @@ footer > a:last-child { justify-self: end; }
   .navLinks { display: none; }
   .hero { grid-template-columns: 1fr; }
   .heroCopy { padding: 65px 6vw 45px; }
-  .heroVisual { min-height: 620px; }
+  .heroVisual { min-height: 660px; padding: 8%; }
   .heroProof { margin-top: 60px; }
   .manifesto { grid-template-columns: 1fr; padding: 80px 6vw; min-height: 500px; }
   .manifesto blockquote { text-align: left; }
@@ -174,8 +218,8 @@ footer > a:last-child { justify-self: end; }
   .heroActions { align-items: flex-start; flex-direction: column; }
   .heroProof { gap: 20px; justify-content: space-between; }
   .heroProof strong { font-size: 21px; }
-  .heroVisual { min-height: 510px; }
-  .portraitFrame { width: 82%; }
+  .heroVisual { min-height: 480px; padding: 7%; }
+  .portraitFrame { width: 91%; }
   .manifesto { min-height: 430px; }
   .manifesto blockquote { font-size: 32px; }
   .sectionHeader h2, .practiceIntro h2, .methodCopy h2 { font-size: 42px; }
