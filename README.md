@@ -98,3 +98,10 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
 - [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+
+## Nova domain migration
+
+The root route serves `public/nova-site.html`, a verified static mirror of the
+current Nova public site. Its referenced images are kept in `public/` so the
+same layout, motion, gallery, QR card, and contact details can be published on
+`novayin.com` without changing the original WorkBuddy project.

@@ -29,6 +29,15 @@ const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
+    // The public home page intentionally serves the verified static source from
+    // the existing Nova site. Keeping this response byte-for-byte aligned with
+    // that source preserves its layout and scripted motion during the domain
+    // migration, while the rest of the app remains available for future work.
+    if (url.pathname === "/") {
+      const sourceUrl = new URL("/nova-site.html", request.url);
+      return env.ASSETS.fetch(new Request(sourceUrl, request));
+    }
+
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
       return handleImageOptimization(request, {
