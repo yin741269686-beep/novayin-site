@@ -34,7 +34,9 @@ const worker = {
     // that source preserves its layout and scripted motion during the domain
     // migration, while the rest of the app remains available for future work.
     if (url.pathname === "/") {
-      const sourceUrl = new URL("/nova-site.html", request.url);
+      // The static host exposes HTML documents at their extensionless route.
+      // Fetch that canonical asset directly so the bare domain remains visible.
+      const sourceUrl = new URL("/nova-site", request.url);
       return env.ASSETS.fetch(new Request(sourceUrl, request));
     }
 
