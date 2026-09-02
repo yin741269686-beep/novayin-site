@@ -105,3 +105,10 @@ The root route serves `public/nova-site.html`, a verified static mirror of the
 current Nova public site. Its referenced images are kept in `public/` so the
 same layout, motion, gallery, QR card, and contact details can be published on
 `novayin.com` without changing the original WorkBuddy project.
+
+2026-09-01: Added seven renamed AI salon group photos and one outdoor group
+photo to the start of the existing activity wall. It remains local for review
+until publishing is explicitly confirmed.
+
+2026-09-01: Updated the activity headline to state coverage of nearly 1,000
+people.
