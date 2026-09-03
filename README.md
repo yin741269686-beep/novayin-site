@@ -112,3 +112,9 @@ until publishing is explicitly confirmed.
 
 2026-09-01: Updated the activity headline to state coverage of nearly 1,000
 people.
+
+## GitHub publishing
+
+The public repository is `yin741269686-beep/novayin-site`. GitHub Actions
+publishes the contents of `public/` and serves `public/nova-site.html` as the
+site homepage. The generated local preview file is intentionally excluded.
